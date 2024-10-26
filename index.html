@@ -41,9 +41,9 @@
         </a>
 
         <!-- YouTube Video Section -->
-        <div class="video-container">
+        <div class="video-container" id="videoContainer" style="display: none;"> <!-- Initially hidden -->
             <h2>Watch Video</h2>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/OUwbN2M7rM4?start=240&autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/OUwbN2M7rM4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <p class="tutorial-text">Tutorial by 333 l</p> <!-- Descrição do tutorial -->
         </div>
     </div>
@@ -77,6 +77,12 @@
                 }, 500); // Waits for the animation to finish
             }
         }
+
+        // Função para mostrar o vídeo assim que a página carregar
+        window.onload = function() {
+            const videoContainer = document.getElementById('videoContainer');
+            videoContainer.style.display = 'block'; // Mostra o vídeo
+        };
     </script>
 
     <style>
