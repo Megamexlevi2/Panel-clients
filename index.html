@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Client Downloads</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css"> <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="styles.css"> <!-- Link para o arquivo CSS -->
 </head>
 <body class="theme1">
     <div class="container">
@@ -45,7 +45,7 @@
         let currentTheme = 1;
 
         function changeTheme() {
-            currentTheme = (currentTheme % 4) + 1; // Alternates between 1 and 4
+            currentTheme = (currentTheme % 4) + 1; // Alterna entre 1 e 4
             document.body.className = 'theme' + currentTheme;
             document.querySelector('.container').style.background = currentTheme === 2 ? 'rgba(231, 76, 60, 0.9)' : currentTheme === 3 ? 'rgba(142, 68, 173, 0.9)' : currentTheme === 4 ? 'rgba(39, 174, 96, 0.9)' : 'rgba(44, 62, 80, 0.9)';
         }
@@ -54,20 +54,20 @@
             const youtubeList = document.getElementById('youtubeList');
             if (youtubeList.style.display === 'none' || youtubeList.style.display === '') {
                 youtubeList.style.display = 'block';
-                youtubeList.style.opacity = '0'; // Starts invisible
-                youtubeList.style.transform = 'translateY(-10px)'; // Moves up
+                youtubeList.style.opacity = '0'; // Começa invisível
+                youtubeList.style.transform = 'translateY(-10px)'; // Move para cima
                 setTimeout(() => {
-                    youtubeList.style.transition = 'opacity 0.5s, transform 0.5s'; // Adds transition
-                    youtubeList.style.opacity = '1'; // Makes visible
-                    youtubeList.style.transform = 'translateY(0)'; // Returns to original position
+                    youtubeList.style.transition = 'opacity 0.5s, transform 0.5s'; // Adiciona transição
+                    youtubeList.style.opacity = '1'; // Fica visível
+                    youtubeList.style.transform = 'translateY(0)'; // Retorna à posição original
                 }, 10);
             } else {
                 youtubeList.style.transition = 'opacity 0.5s, transform 0.5s';
-                youtubeList.style.opacity = '0'; // Makes invisible
-                youtubeList.style.transform = 'translateY(-10px)'; // Moves up
+                youtubeList.style.opacity = '0'; // Fica invisível
+                youtubeList.style.transform = 'translateY(-10px)'; // Move para cima
                 setTimeout(() => {
-                    youtubeList.style.display = 'none'; // Hides the element
-                }, 500); // Waits for the animation to finish
+                    youtubeList.style.display = 'none'; // Esconde o elemento
+                }, 500); // Espera a animação terminar
             }
         }
     </script>
