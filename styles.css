@@ -8,7 +8,7 @@ body {
     height: 100vh;
     transition: background-color 0.5s ease-in-out;
     background-image: url('/storage/emulated/0/MT2/zpanelsite/Panel-clients/5f425e9daf171a0def72bc220a5451fb_w200.gif');
-    background-size: cover; /* Faz o GIF cobrir todo o fundo */
+    background-size: cover; /* Para cobrir toda a tela */
     background-position: center; /* Centraliza o GIF */
 }
 
@@ -97,17 +97,17 @@ button:active {
 
 /* Temas */
 .theme1 {
-    background-color: rgba(44, 62, 80, 0.7); /* Tema escuro */
+    background-color: rgba(44, 62, 80, 0.9); /* Tema escuro */
 }
 
 .theme2 {
-    background-color: rgba(231, 76, 60, 0.7); /* Tema vermelho */
+    background-color: rgba(231, 76, 60, 0.9); /* Tema vermelho */
 }
 
 .theme3 {
-    background-color: rgba(142, 68, 173, 0.7); /* Tema roxo */
+    background-color: rgba(142, 68, 173, 0.9); /* Tema roxo */
 }
 
 .theme4 {
-    background-color: rgba(39, 174, 96, 0.7); /* Tema verde */
+    background-color: rgba(39, 174, 96, 0.9); /* Tema verde */
 }
