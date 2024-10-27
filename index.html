@@ -68,7 +68,7 @@
         <!-- YouTube Video Section -->
         <div class="video-container" id="videoContainer">
             <h2>Watch Video Tutorial</h2>
-            <iframe id="video" src="https://www.youtube.com/embed/OUwbN2M7rM4?start=240&controls=0&disablekb=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe id="video" src="https://www.youtube.com/embed/OUwbN2M7rM4?start=240" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <br> <!-- Additional line for spacing -->
             <p class="tutorial-text">Tutorial on how to set up the panel by 333 l</p> <!-- Tutorial description -->
         </div>
@@ -104,11 +104,17 @@
             }
         }
 
-        // Function to keep the video running from 4:00
-        window.onload = function() {
-            const video = document.getElementById('video');
-            video.src = video.src; // Reloads the video to start from the specified time
-        };
+        // Keep the video from being played before 4 minutes
+        const video = document.getElementById('video');
+        video.addEventListener('load', function() {
+            video.contentWindow.postMessage('{"event":"command","func":"seekTo","args":[240]}', '*');
+        });
+
+        video.addEventListener('timeupdate', function() {
+            if (video.currentTime < 240) {
+                video.currentTime = 240; // Resets the time to 4 minutes if less than 4 minutes
+            }
+        });
     </script>
 </body>
 </html>
