@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="styles.css"> <!-- Link to the CSS file -->
     <style>
         body {
+            margin: 0;
+            padding: 0;
             overflow: auto; /* Permite rolagem */
         }
         .container {
@@ -20,11 +22,14 @@
             margin-top: 20px; /* Space above the video */
             text-align: center; /* Center-aligns text and video */
             clear: both; /* Ensures the video stays below the buttons */
+            max-height: 450px; /* Limita a altura do contêiner do vídeo */
+            overflow: hidden; /* Esconde qualquer conteúdo que transborde */
         }
         iframe {
             width: 90%; /* Reduz a largura do vídeo */
-            height: 450px; /* Altura do vídeo ajustada */
+            height: 100%; /* Define altura para preencher o contêiner */
             max-width: 1000px; /* Largura máxima do vídeo */
+            max-height: 450px; /* Altura máxima do vídeo */
         }
         .tutorial-text {
             margin-top: 10px; /* Space above the text */
@@ -73,7 +78,6 @@
         <div class="video-container" id="videoContainer">
             <h2>Watch Video Tutorial</h2>
             <iframe id="video" src="https://www.youtube.com/embed/OUwbN2M7rM4?start=240&controls=0&disablekb=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <br> <!-- Additional line for spacing -->
             <p class="tutorial-text">Tutorial on how to set up the panel by 333 l</p> <!-- Tutorial description -->
         </div>
     </div>
