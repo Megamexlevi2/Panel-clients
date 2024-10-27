@@ -66,9 +66,9 @@
         </a>
 
         <!-- YouTube Video Section -->
-        <div class="video-container" id="videoContainer" style="display: none;"> <!-- Initially hidden -->
+        <div class="video-container" id="videoContainer">
             <h2>Watch Video Tutorial</h2>
-            <iframe src="https://www.youtube.com/embed/OUwbN2M7rM4?start=240" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe id="video" src="https://www.youtube.com/embed/OUwbN2M7rM4?start=240&controls=0&disablekb=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <br> <!-- Additional line for spacing -->
             <p class="tutorial-text">Tutorial on how to set up the panel by 333 l</p> <!-- Tutorial description -->
         </div>
@@ -104,10 +104,10 @@
             }
         }
 
-        // Function to show the video as soon as the page loads
+        // Function to keep the video running from 4:00
         window.onload = function() {
-            const videoContainer = document.getElementById('videoContainer');
-            videoContainer.style.display = 'block'; // Show the video
+            const video = document.getElementById('video');
+            video.src = video.src; // Reloads the video to start from the specified time
         };
     </script>
 </body>
