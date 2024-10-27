@@ -8,22 +8,24 @@
     <link rel="stylesheet" href="styles.css"> <!-- Link to the CSS file -->
     <style>
         body {
-            overflow: auto; /* Adicionado para permitir a rolagem */
+            overflow-x: hidden; /* Previne rolagem horizontal */
         }
         .container {
             max-width: 800px; /* Limita a largura do contêiner */
             margin: 0 auto; /* Centraliza o contêiner */
             padding: 20px; /* Adiciona preenchimento dentro do contêiner */
-            text-align: center; /* Alinha o texto ao centro */
+            text-align: center; /* Centraliza o texto */
         }
         .video-container {
             margin-top: 20px; /* Espaço acima do vídeo */
             text-align: center; /* Centraliza o texto e o vídeo */
             clear: both; /* Garante que o vídeo fique abaixo dos botões */
+            overflow: hidden; /* Previne o estouro de elementos */
         }
         iframe {
-            width: 100%; /* Faz o vídeo ocupar toda a largura disponível */
-            height: 600px; /* Aumenta a altura do vídeo */
+            width: 100%; /* Faz o vídeo ocupar a largura total disponível */
+            max-width: 100%; /* Garante que o vídeo não ultrapasse a largura do contêiner */
+            height: 400px; /* Altura reduzida para melhor visualização */
         }
         .tutorial-text {
             margin-top: 10px; /* Espaço acima do texto */
@@ -47,7 +49,7 @@
 
         <button onclick="toggleYoutube()">YouTube Channels</button>
         
-        <div class="youtube-list" id="youtubeList" style="display:none;"> <!-- Adiciona display:none inicialmente -->
+        <div class="youtube-list" id="youtubeList" style="display: none;">
             <a href="https://youtube.com/@zynxusbg2009?si=l4HKHWNDkZ9Vj-hl" target="_blank">
                 <button>YouTube Zynxus</button>
             </a>
@@ -102,7 +104,7 @@
                 youtubeList.style.opacity = '0'; // Torna invisível
                 youtubeList.style.transform = 'translateY(-10px)'; // Move para cima
                 setTimeout(() => {
-                    youtubeList.style.display = 'none'; // Oculta o elemento
+                    youtubeList.style.display = 'none'; // Esconde o elemento
                 }, 500); // Espera a animação terminar
             }
         }
@@ -110,7 +112,7 @@
         // Função para manter o vídeo rodando a partir de 4:00
         window.onload = function() {
             const video = document.getElementById('video');
-            video.src = video.src; // Recarrega o vídeo para começar do tempo especificado
+            video.src = video.src; // Recarrega o vídeo para começar a partir do tempo especificado
         };
     </script>
 </body>

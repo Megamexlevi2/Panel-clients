@@ -5,7 +5,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Mantém a altura da viewport */
+    height: 100vh;
     transition: background-color 0.5s ease-in-out;
     background-image: url('/storage/emulated/0/MT2/zpanelsite/Panel-clients/5f425e9daf171a0def72bc220a5451fb_w200.gif');
     background-size: cover; /* Para cobrir toda a tela */
@@ -20,9 +20,9 @@ body {
     max-width: 400px;
     text-align: center;
     transition: background 0.5s ease-in-out;
-    max-height: 80vh; /* Limita a altura da container à 80% da altura da viewport */
-    overflow-y: auto; /* Permite rolagem vertical */
-    overflow-x: hidden; /* Esconde a rolagem horizontal se houver */
+    transform: translateY(-20px);
+    opacity: 0;
+    animation: fadeInUp 0.5s forwards; /* Animação de entrada */
 }
 
 @keyframes fadeInUp {
@@ -68,6 +68,15 @@ button:hover {
 button:active {
     transform: translateY(1px); /* Efeito de clique */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.youtube-list {
+    display: none;
+    margin-top: 20px;
+    font-size: 1.1em;
+    color: #f39c12; /* Cor laranja */
+    text-align: left;
+    transition: all 0.5s ease;
 }
 
 .discord-button {
