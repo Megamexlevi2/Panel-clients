@@ -8,32 +8,31 @@
     <link rel="stylesheet" href="styles.css"> <!-- Link to the CSS file -->
     <style>
         body {
-            overflow-x: hidden; /* Previne rolagem horizontal */
+            overflow: auto; /* Permite rolagem */
         }
         .container {
-            max-width: 800px; /* Limita a largura do contêiner */
-            margin: 0 auto; /* Centraliza o contêiner */
-            padding: 20px; /* Adiciona preenchimento dentro do contêiner */
-            text-align: center; /* Centraliza o texto */
+            max-width: 800px; /* Limits the width of the container */
+            margin: 0 auto; /* Centers the container */
+            padding: 20px; /* Adds padding inside the container */
+            text-align: center; /* Center-aligns text */
         }
         .video-container {
-            margin-top: 20px; /* Espaço acima do vídeo */
-            text-align: center; /* Centraliza o texto e o vídeo */
-            clear: both; /* Garante que o vídeo fique abaixo dos botões */
-            overflow: hidden; /* Previne o estouro de elementos */
+            margin-top: 20px; /* Space above the video */
+            text-align: center; /* Center-aligns text and video */
+            clear: both; /* Ensures the video stays below the buttons */
         }
         iframe {
-            width: 100%; /* Faz o vídeo ocupar a largura total disponível */
-            max-width: 100%; /* Garante que o vídeo não ultrapasse a largura do contêiner */
-            height: 400px; /* Altura reduzida para melhor visualização */
+            width: 90%; /* Reduz a largura do vídeo */
+            height: 450px; /* Altura do vídeo ajustada */
+            max-width: 1000px; /* Largura máxima do vídeo */
         }
         .tutorial-text {
-            margin-top: 10px; /* Espaço acima do texto */
-            font-weight: bold; /* Torna o texto em negrito */
-            color: #ffffff; /* Define a cor do texto como branco para melhor visibilidade */
-            background-color: rgba(0, 0, 0, 0.8); /* Fundo semi-transparente mais escuro para contraste */
-            padding: 15px; /* Aumenta o preenchimento para melhor legibilidade */
-            border-radius: 5px; /* Arredonda os cantos */
+            margin-top: 10px; /* Space above the text */
+            font-weight: bold; /* Makes the text bold */
+            color: #ffffff; /* Sets text color to white for better visibility */
+            background-color: rgba(0, 0, 0, 0.8); /* Darker semi-transparent background for contrast */
+            padding: 15px; /* Increases padding for better readability */
+            border-radius: 5px; /* Rounds the corners */
         }
     </style>
 </head>
@@ -49,7 +48,7 @@
 
         <button onclick="toggleYoutube()">YouTube Channels</button>
         
-        <div class="youtube-list" id="youtubeList" style="display: none;">
+        <div class="youtube-list" id="youtubeList">
             <a href="https://youtube.com/@zynxusbg2009?si=l4HKHWNDkZ9Vj-hl" target="_blank">
                 <button>YouTube Zynxus</button>
             </a>
@@ -74,8 +73,8 @@
         <div class="video-container" id="videoContainer">
             <h2>Watch Video Tutorial</h2>
             <iframe id="video" src="https://www.youtube.com/embed/OUwbN2M7rM4?start=240&controls=0&disablekb=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <br> <!-- Linha adicional para espaçamento -->
-            <p class="tutorial-text">Tutorial on how to set up the panel by 333 l</p> <!-- Descrição do tutorial -->
+            <br> <!-- Additional line for spacing -->
+            <p class="tutorial-text">Tutorial on how to set up the panel by 333 l</p> <!-- Tutorial description -->
         </div>
     </div>
 
@@ -83,7 +82,7 @@
         let currentTheme = 1;
 
         function changeTheme() {
-            currentTheme = (currentTheme % 4) + 1; // Alterna entre 1 e 4
+            currentTheme = (currentTheme % 4) + 1; // Alternates between 1 and 4
             document.body.className = 'theme' + currentTheme;
             document.querySelector('.container').style.background = currentTheme === 2 ? 'rgba(231, 76, 60, 0.9)' : currentTheme === 3 ? 'rgba(142, 68, 173, 0.9)' : currentTheme === 4 ? 'rgba(39, 174, 96, 0.9)' : 'rgba(44, 62, 80, 0.9)';
         }
@@ -92,27 +91,27 @@
             const youtubeList = document.getElementById('youtubeList');
             if (youtubeList.style.display === 'none' || youtubeList.style.display === '') {
                 youtubeList.style.display = 'block';
-                youtubeList.style.opacity = '0'; // Começa invisível
-                youtubeList.style.transform = 'translateY(-10px)'; // Move para cima
+                youtubeList.style.opacity = '0'; // Starts invisible
+                youtubeList.style.transform = 'translateY(-10px)'; // Moves up
                 setTimeout(() => {
-                    youtubeList.style.transition = 'opacity 0.5s, transform 0.5s'; // Adiciona transição
-                    youtubeList.style.opacity = '1'; // Torna visível
-                    youtubeList.style.transform = 'translateY(0)'; // Retorna à posição original
+                    youtubeList.style.transition = 'opacity 0.5s, transform 0.5s'; // Adds transition
+                    youtubeList.style.opacity = '1'; // Makes visible
+                    youtubeList.style.transform = 'translateY(0)'; // Returns to original position
                 }, 10);
             } else {
                 youtubeList.style.transition = 'opacity 0.5s, transform 0.5s';
-                youtubeList.style.opacity = '0'; // Torna invisível
-                youtubeList.style.transform = 'translateY(-10px)'; // Move para cima
+                youtubeList.style.opacity = '0'; // Makes invisible
+                youtubeList.style.transform = 'translateY(-10px)'; // Moves up
                 setTimeout(() => {
-                    youtubeList.style.display = 'none'; // Esconde o elemento
-                }, 500); // Espera a animação terminar
+                    youtubeList.style.display = 'none'; // Hides the element
+                }, 500); // Waits for the animation to finish
             }
         }
 
-        // Função para manter o vídeo rodando a partir de 4:00
+        // Function to keep the video running from 4:00
         window.onload = function() {
             const video = document.getElementById('video');
-            video.src = video.src; // Recarrega o vídeo para começar a partir do tempo especificado
+            video.src = video.src; // Reloads the video to start from the specified time
         };
     </script>
 </body>
