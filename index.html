@@ -5,43 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Client Downloads</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css"> <!-- Link to the CSS file -->
     <style>
         body {
             margin: 0;
             padding: 0;
-            overflow: auto; /* Permite rolagem */
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #6dd5ed, #2193b0); /* Gradiente de fundo */
+            color: #ffffff; /* Cor do texto */
+            overflow: auto;
         }
         .container {
-            max-width: 800px; /* Limits the width of the container */
-            margin: 0 auto; /* Centers the container */
-            padding: 20px; /* Adds padding inside the container */
-            text-align: center; /* Center-aligns text */
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            background: rgba(44, 62, 80, 0.9); /* Fundo do contêiner */
+            border-radius: 10px; /* Bordas arredondadas */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Sombra para profundidade */
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2.5em; /* Tamanho da fonte do título */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra do texto */
+        }
+        button {
+            margin: 10px;
+            padding: 12px 24px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background: #f39c12; /* Cor de fundo dos botões */
+            color: #ffffff; /* Cor do texto dos botões */
+            transition: background 0.3s, transform 0.3s; /* Efeito de transição */
+        }
+        button:hover {
+            background: #e67e22; /* Cor do botão ao passar o mouse */
+            transform: translateY(-2px); /* Efeito de levitar ao passar o mouse */
         }
         .video-container {
-            margin-top: 20px; /* Space above the video */
-            text-align: center; /* Center-aligns text and video */
-            clear: both; /* Ensures the video stays below the buttons */
-            max-height: 450px; /* Limita a altura do contêiner do vídeo */
-            overflow: hidden; /* Esconde qualquer conteúdo que transborde */
+            margin-top: 20px;
+            max-height: 450px;
+            overflow: hidden;
+            border-radius: 10px; /* Bordas arredondadas do contêiner do vídeo */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Sombra para profundidade */
         }
         iframe {
-            width: 90%; /* Reduz a largura do vídeo */
-            height: 100%; /* Define altura para preencher o contêiner */
-            max-width: 1000px; /* Largura máxima do vídeo */
-            max-height: 450px; /* Altura máxima do vídeo */
+            width: 100%;
+            height: 100%;
+            max-width: 1000px;
+            max-height: 450px;
+            border-radius: 10px; /* Bordas arredondadas do vídeo */
         }
         .tutorial-text {
-            margin-top: 10px; /* Space above the text */
-            font-weight: bold; /* Makes the text bold */
-            color: #ffffff; /* Sets text color to white for better visibility */
-            background-color: rgba(0, 0, 0, 0.8); /* Darker semi-transparent background for contrast */
-            padding: 15px; /* Increases padding for better readability */
-            border-radius: 5px; /* Rounds the corners */
+            margin-top: 10px;
+            font-weight: bold;
+            background: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente */
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .youtube-list {
+            display: none; /* Oculta a lista inicialmente */
+            margin-top: 20px;
+            animation: fadeIn 0.5s; /* Animação ao exibir a lista */
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .discord-button {
+            background: #7289da; /* Cor do botão Discord */
+            margin-top: 20px;
+        }
+        .discord-button:hover {
+            background: #5b6eae; /* Cor do botão Discord ao passar o mouse */
         }
     </style>
 </head>
-<body class="theme1">
+<body>
     <div class="container">
         <h1>Client Downloads</h1>
         <a href="https://mega.nz/file/2AolQJgQ#F6Jm8fzF0LbKMtyOYqADycusMGpXPqzMdYsu5DiZ2aU" download>
@@ -78,44 +119,33 @@
         <div class="video-container" id="videoContainer">
             <h2>Watch Video Tutorial</h2>
             <iframe id="video" src="https://www.youtube.com/embed/OUwbN2M7rM4?start=240&controls=0&disablekb=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <p class="tutorial-text">Tutorial on how to set up the panel by 333 l</p> <!-- Tutorial description -->
+            <p class="tutorial-text">Tutorial on how to set up the panel by 333 l</p>
         </div>
     </div>
 
     <script>
-        let currentTheme = 1;
-
-        function changeTheme() {
-            currentTheme = (currentTheme % 4) + 1; // Alternates between 1 and 4
-            document.body.className = 'theme' + currentTheme;
-            document.querySelector('.container').style.background = currentTheme === 2 ? 'rgba(231, 76, 60, 0.9)' : currentTheme === 3 ? 'rgba(142, 68, 173, 0.9)' : currentTheme === 4 ? 'rgba(39, 174, 96, 0.9)' : 'rgba(44, 62, 80, 0.9)';
-        }
-
         function toggleYoutube() {
             const youtubeList = document.getElementById('youtubeList');
             if (youtubeList.style.display === 'none' || youtubeList.style.display === '') {
                 youtubeList.style.display = 'block';
-                youtubeList.style.opacity = '0'; // Starts invisible
-                youtubeList.style.transform = 'translateY(-10px)'; // Moves up
+                youtubeList.style.opacity = '0'; // Começa invisível
                 setTimeout(() => {
-                    youtubeList.style.transition = 'opacity 0.5s, transform 0.5s'; // Adds transition
-                    youtubeList.style.opacity = '1'; // Makes visible
-                    youtubeList.style.transform = 'translateY(0)'; // Returns to original position
+                    youtubeList.style.transition = 'opacity 0.5s'; // Adiciona transição
+                    youtubeList.style.opacity = '1'; // Torna visível
                 }, 10);
             } else {
-                youtubeList.style.transition = 'opacity 0.5s, transform 0.5s';
-                youtubeList.style.opacity = '0'; // Makes invisible
-                youtubeList.style.transform = 'translateY(-10px)'; // Moves up
+                youtubeList.style.transition = 'opacity 0.5s';
+                youtubeList.style.opacity = '0'; // Torna invisível
                 setTimeout(() => {
-                    youtubeList.style.display = 'none'; // Hides the element
-                }, 500); // Waits for the animation to finish
+                    youtubeList.style.display = 'none'; // Oculta o elemento
+                }, 500); // Aguarda a animação terminar
             }
         }
 
-        // Function to keep the video running from 4:00
+        // Função para manter o vídeo rodando de 4:00
         window.onload = function() {
             const video = document.getElementById('video');
-            video.src = video.src; // Reloads the video to start from the specified time
+            video.src = video.src; // Recarrega o vídeo para começar no tempo especificado
         };
     </script>
 </body>
