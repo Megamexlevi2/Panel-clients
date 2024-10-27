@@ -6,6 +6,32 @@
     <title>Client Downloads</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css"> <!-- Link to the CSS file -->
+    <style>
+        .container {
+            max-width: 800px; /* Limits the width of the container */
+            margin: 0 auto; /* Centers the container */
+            padding: 20px; /* Adds padding inside the container */
+            text-align: center; /* Center-aligns text */
+        }
+        .video-container {
+            margin-top: 20px; /* Space above the video */
+            text-align: center; /* Center-aligns text and video */
+            clear: both; /* Ensures the video stays below the buttons */
+        }
+        iframe {
+            width: 100%; /* Makes the video occupy the full available width */
+            height: 500px; /* Fixed height for the video */
+        }
+        .tutorial-text {
+            margin-top: 10px; /* Space above the text */
+            font-weight: bold; /* Makes the text bold */
+            color: #ffffff; /* Sets text color to white for better visibility */
+            text-align: center; /* Center-aligns text */
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background for contrast */
+            padding: 10px; /* Adds padding for better readability */
+            border-radius: 5px; /* Rounds the corners */
+        }
+    </style>
 </head>
 <body class="theme1">
     <div class="container">
@@ -43,7 +69,7 @@
         <!-- YouTube Video Section -->
         <div class="video-container" id="videoContainer" style="display: none;"> <!-- Initially hidden -->
             <h2>Watch Video Tutorial</h2>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/OUwbN2M7rM4?start=240" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/OUwbN2M7rM4?start=240" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <br> <!-- Additional line for spacing -->
             <p class="tutorial-text">Tutorial on how to set up the panel by 333 l</p> <!-- Tutorial description -->
         </div>
@@ -85,23 +111,5 @@
             videoContainer.style.display = 'block'; // Show the video
         };
     </script>
-
-    <style>
-        .video-container {
-            margin-top: 20px; /* Space aboveeeeeeeee the video */
-            text-align: center; /* Center-aligns text and video */
-            clear: both; /* Ensures the video stays below the buttons */
-        }
-        iframe {
-            max-width: 100%; /* Makes the video occupy the full available width */
-            height: auto; /* Maintains the video aspect ratio */
-        }
-        .tutorial-text {
-            margin-top: 10px; /* Space above the text */
-            font-weight: bold; /* Makes the text bold */
-            color: #333; /* Text color */
-            text-align: center; /* Center-aligns text */
-        }
-    </style>
 </body>
 </html>
